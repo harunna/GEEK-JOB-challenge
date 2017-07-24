@@ -1,0 +1,195 @@
+
+Setting environment for using XAMPP for Windows.
+guest1Day@DESKTOP-H08RLFM c:\xampp
+# mysql -h localhost -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.21-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE USER 'harunna'@'localhost'IDENTIFILD BY'1202';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IDENTIFILD BY'1202'' at line 1
+MariaDB [(none)]> CREATE USER
+    ->
+    -> 'harunna'@'localhost'
+    -> IDENTIFIED BY
+    ->
+    -> 'password';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'harunna'@'localhost'
+MariaDB [(none)]>  CREATE USER
+    ->     ->
+    ->     -> 'harunna'@'localhost'
+    ->     -> IDENTIFIED BY
+    ->     ->
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '->
+    -> 'harunna'@'localhost'
+    -> IDENTIFIED BY
+    ->' at line 2
+MariaDB [(none)]> CREATE USER
+    ->
+    -> 'saki'@'localhost'
+    -> IDENTIFIED BY
+    ->
+    -> '122123';
+Query OK, 0 rows affected (0.41 sec)
+
+MariaDB [(none)]> CREATE DATABASE db;
+ERROR 1007 (HY000): Can't create database 'db'; database exists
+MariaDB [(none)]> CREATE DATABASE datebase;
+ERROR 1007 (HY000): Can't create database 'datebase'; database exists
+MariaDB [(none)]> CREATE DATABASE dateba;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> USE databa;
+ERROR 1049 (42000): Unknown database 'databa'
+MariaDB [(none)]> GRANT ALL ON databa.* TO 'saki'@'localhost';
+Query OK, 0 rows affected (0.08 sec)
+
+MariaDB [(none)]> USE databa;
+ERROR 1049 (42000): Unknown database 'databa'
+MariaDB [(none)]> CREATE DATABASE dateba;
+ERROR 1007 (HY000): Can't create database 'dateba'; database exists
+MariaDB [(none)]> CREATE DATABASE datebase1;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> USE database1;
+ERROR 1049 (42000): Unknown database 'database1'
+MariaDB [(none)]> * USE datebase1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* USE datebase1' at line 1
+MariaDB [(none)]> USE datebase1;
+Database changed
+MariaDB [datebase1]> create table department(departmentID int Primary Key,departmentName text);
+Query OK, 0 rows affected (0.66 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO department(departmentID,departmentName)VALUES(1,'äJî≠ïî');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [datebase1]> INSERT INTO department(departmentID,departmentName)VALUES(2,'âcã∆ïî');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [datebase1]> INSERT INTO department(departmentID,departmentName)VALUES(3,'ëçñ±ïî');
+Query OK, 1 row affected (0.08 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]>
+MariaDB [datebase1]> create table user(userID int Primary Key,name varchar(255),tell varchar(255),age int,birthday date,departmentID int,stationID int);
+Query OK, 0 rows affected (0.22 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO user(userID,name,tell,age,birthday,departmentID,stationID)VALUES('1','ìcíÜé¿','012-345-6789','30','1994-02-01','3','1');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO user(userID,name,tell,age,birthday,departmentID,stationID)VALUES('2','óÈñÿñŒ','090-1122-3344','37','1987-08-12','3','4');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO user(userID,name,tell,age,birthday,departmentID,stationID)VALUES('3','óÈñÿé¿','080-5566-7788','24','2000-12-24','2','5');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO user(userID,name,tell,age,birthday,departmentID,stationID)VALUES('4','ç≤ì°ê¥','012-0987-6543','19','2005-08-01','1','5');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO user(userID,name,tell,age,birthday,departmentID,stationID)VALUES('5','çÇã¥ê¥','090-9900-1234','24','2000-12-24','3','5');
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]>
+MariaDB [datebase1]> SELECT * FROM user;
++--------+--------+---------------+------+------------+--------------+-----------+
+| userID | name   | tell          | age  | birthday   | departmentID | stationID |
++--------+--------+---------------+------+------------+--------------+-----------+
+|      1 | ìcíÜé¿ | 012-345-6789  |   30 | 1994-02-01 |            3 |         1 |
+|      2 | óÈñÿñŒ | 090-1122-3344 |   37 | 1987-08-12 |            3 |         4 |
+|      3 | óÈñÿé¿ | 080-5566-7788 |   24 | 2000-12-24 |            2 |         5 |
+|      4 | ç≤ì°ê¥ | 012-0987-6543 |   19 | 2005-08-01 |            1 |         5 |
+|      5 | çÇã¥ê¥ | 090-9900-1234 |   24 | 2000-12-24 |            3 |         5 |
++--------+--------+---------------+------+------------+--------------+-----------+
+5 rows in set (0.11 sec)
+
+MariaDB [datebase1]> SELECT * FROM department;
++--------------+----------------+
+| departmentID | departmentName |
++--------------+----------------+
+|            1 | äJî≠ïî         |
+|            2 | âcã∆ïî         |
+|            3 | ëçñ±ïî         |
++--------------+----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [datebase1]> create table station(stationID int,stationName text);
+Query OK, 0 rows affected (0.26 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO station(stationID,stationName)VALUES(1,'ã„íiâ∫');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO station(stationID,stationName)VALUES(2,'âiìcí¨');
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO station(stationID,stationName)VALUES(3,'èaíJ');
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO station(stationID,stationName)VALUES(4,'ê_ï€í¨');
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]> INSERT INTO station(stationID,stationName)VALUES(5,'è„à‰ëê');
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [datebase1]>
+MariaDB [datebase1]>
+MariaDB [datebase1]>
+MariaDB [datebase1]>
+MariaDB [datebase1]> ALTER TABLE station  ADD PRIMARY KEY(stationID);
+Query OK, 5 rows affected (0.86 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [datebase1]> ALTER TABLE user ADD FOREIGN KEY(stationID) REFERENCES station(stationID);
+Query OK, 5 rows affected (0.95 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [datebase1]> SELECT * FROM user;
++--------+--------+---------------+------+------------+--------------+-----------+
+| userID | name   | tell          | age  | birthday   | departmentID | stationID |
++--------+--------+---------------+------+------------+--------------+-----------+
+|      1 | ìcíÜé¿ | 012-345-6789  |   30 | 1994-02-01 |            3 |         1 |
+|      2 | óÈñÿñŒ | 090-1122-3344 |   37 | 1987-08-12 |            3 |         4 |
+|      3 | óÈñÿé¿ | 080-5566-7788 |   24 | 2000-12-24 |            2 |         5 |
+|      4 | ç≤ì°ê¥ | 012-0987-6543 |   19 | 2005-08-01 |            1 |         5 |
+|      5 | çÇã¥ê¥ | 090-9900-1234 |   24 | 2000-12-24 |            3 |         5 |
++--------+--------+---------------+------+------------+--------------+-----------+
+5 rows in set (0.00 sec)
+
+MariaDB [datebase1]> SELECT * FROM department;
++--------------+----------------+
+| departmentID | departmentName |
++--------------+----------------+
+|            1 | äJî≠ïî         |
+|            2 | âcã∆ïî         |
+|            3 | ëçñ±ïî         |
++--------------+----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [datebase1]> SELECT * FROM station;
++-----------+-------------+
+| stationID | stationName |
++-----------+-------------+
+|         1 | ã„íiâ∫      |
+|         2 | âiìcí¨      |
+|         3 | èaíJ        |
+|         4 | ê_ï€í¨      |
+|         5 | è„à‰ëê      |
++-----------+-------------+
+5 rows in set (0.00 sec)
